@@ -11,15 +11,15 @@ int _printf(const char *format, ...)
 	char *s;
 
 	va_start(arguements,format);
-	for (str = format; str !='\0'; str++)
+	while (*format)
 	{
-		while (*str != '%')
+		if(*format !='%')
 		{
-			_putchar(*str);
-			*str++;
+			_putchar(*format++);
 		}
-		*str++;
-		switch(*str)
+		else
+		{
+		switch(*format)
 		{
 			case 'c': i = va_arg(arguements,int);
 				 _putchar(i);
@@ -32,6 +32,8 @@ int _printf(const char *format, ...)
 				  }
 				  break;
 		}
+		}
 	}
 	va_end(arguements);
+	return (0);
 }
