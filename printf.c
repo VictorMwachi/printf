@@ -6,23 +6,30 @@
 int _printf(const char *format, ...)
 {
 	va_list arguements;
-	unsigned int i;
+	unsigned int i,state =0;
 	char *str;
 	char *s;
 
 	va_start(arguements,format);
-	while (*format)
+	while (*format !='\0')
 	{
-		if(*format !='%')
+	    if (state ==0)
+	    {
+		if(*format =='%')
 		{
-			_putchar(*format++);
+		    state = 1;
 		}
+		    else
+		    {
+			_putchar(*format++);
+		    }
+	    }
 		else
 		{
 		switch(*format)
 		{
 			case 'c': i = va_arg(arguements,int);
-				 _putchar(i);
+				 putchar(i);
 				  break;
 			case 's': i = va_arg(arguements,char *);
 				  while(*s)
