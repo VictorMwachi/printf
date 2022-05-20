@@ -15,17 +15,21 @@ int _printf(const char *format, ...)
 	{
 		while (*str != '%')
 		{
-			putchar(*str);
+			_putchar(*str);
 			*str++;
 		}
 		*str++;
 		switch(*str)
 		{
 			case 'c': i = va_arg(arguements,int);
-				  putchar(i);
+				 _putchar(i);
 				  break;
 			case 's': i = va_arg(arguements,char *);
-				  puts(s);
+				  while(*s)
+				  {
+					  _putchar(*s);
+					  *s++;
+				  }
 				  break;
 		}
 	}
