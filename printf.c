@@ -12,7 +12,7 @@ int _printf(char* format,...)
     unsigned int i; 
     char *s; 
 
-    //Module 1: Initializing Myprintf's arguments 
+    //Module 1: Initializing _printf's arguments 
     va_list arg; 
     va_start(arg, format); 
 
@@ -20,8 +20,7 @@ int _printf(char* format,...)
     { 
         while( *traverse != '%' ) 
         { 
-            putchar(*traverse++);
-           // traverse++; 
+            putchar(*traverse++);; 
         } 
 
         traverse++; 
@@ -30,7 +29,7 @@ int _printf(char* format,...)
         switch(*traverse) 
         { 
             case 'c' : i = va_arg(arg,int);     //Fetch char argument
-                        putchar(i);
+                        _putchar(i);
                         break; 
 
             /**case 'd' : i = va_arg(arg,int);         //Fetch Decimal/Integer argument
@@ -53,7 +52,6 @@ int _printf(char* format,...)
            /** case 'x': i = va_arg(arg,unsigned int); //Fetch Hexadecimal representation
                         puts(convert(i,16));
                         break; */
-            default:puts(format);
         }   
     } 
     return 0;
