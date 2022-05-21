@@ -5,7 +5,9 @@ int _putchar(char c)
 }
 int _printf(const char *format, ...)
 {
-    char *track;
+	int (*pfunc)(va_list, flags_t *);
+	flags_t flags = {0, 0, 0};
+    const char *track;
     unsigned int i;
     char *s;
     int count =0;
