@@ -3,44 +3,58 @@
  * _printf - produces output to stdio according to format
  * @format: string containing characters and specifiers
  */
-int _printf(const char *format, ...)
-{
-	va_list arguements;
-	unsigned int i,state =0;
-	char *str;
-	char *s;
+// Online C compiler to run C program online
+#include <stdio.h>
+#include <stdarg.h>
+int _printf(char* format,...) 
+{ 
+    char *traverse; 
+    unsigned int i; 
+    char *s; 
 
-	va_start(arguements,format);
-	while (*format !='\0')
-	{
-	    if (state ==0)
-	    {
-		if(*format =='%')
-		{
-		    state = 1;
-		}
-		    else
-		    {
-			_putchar(*format++);
-		    }
-	    }
-		else
-		{
-		switch(*format)
-		{
-			case 'c': i = va_arg(arguements,int);
-				 putchar(i);
-				  break;
-			case 's': i = va_arg(arguements,char *);
-				  while(*s)
-				  {
-					  _putchar(*s);
-					  *s++;
-				  }
-				  break;
-		}
-		}
-	}
-	va_end(arguements);
-	return (0);
+    //Module 1: Initializing Myprintf's arguments 
+    va_list arg; 
+    va_start(arg, format); 
+
+    for(traverse = format; *traverse != '\0'; traverse++) 
+    { 
+        while( *traverse != '%' ) 
+        { 
+            putchar(*traverse++);
+           // traverse++; 
+        } 
+
+        traverse++; 
+
+        //Module 2: Fetching and executing arguments
+        switch(*traverse) 
+        { 
+            case 'c' : i = va_arg(arg,int);     //Fetch char argument
+                        putchar(i);
+                        break; 
+
+            /**case 'd' : i = va_arg(arg,int);         //Fetch Decimal/Integer argument
+                        if(i<0) 
+                        { 
+                            i = -i;
+                            putchar('-'); 
+                        } 
+                        puts(convert(i,10));
+                        break;
+
+            case 'o': i = va_arg(arg,unsigned int); //Fetch Octal representation
+                        puts(convert(i,8));
+                        break; */
+
+            case 's': s = va_arg(arg,char *);      //Fetch string
+                        puts(s); 
+                        break; 
+
+           /** case 'x': i = va_arg(arg,unsigned int); //Fetch Hexadecimal representation
+                        puts(convert(i,16));
+                        break; */
+            default:puts(format);
+        }   
+    } 
+    return 0;
 }
