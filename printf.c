@@ -18,7 +18,7 @@ int _printf(const char* format,...)
 	    {
 		    return;
 	    }
-            putchar(*traverse);
+            _putchar(*traverse);
 	    count++;
             traverse++;
         }
@@ -28,7 +28,7 @@ int _printf(const char* format,...)
         switch(*traverse)
         {
             case 'c' : i = va_arg(arg,int);     //Fetch char argument
-                        putchar(i);
+                        _putchar(i);
 		       count++;
                         break;
 
@@ -36,7 +36,7 @@ int _printf(const char* format,...)
             case 's': s = va_arg(arg,char *);       //Fetch string
                         while(*s)
 			{
-				putchar(*s);
+				_putchar(*s);
 				count++;
 				*s++;
 			}
