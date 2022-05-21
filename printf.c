@@ -1,7 +1,7 @@
 #include "main.h"
-int _printf(const char* format,...)
+int _printf(const char *format, ...)
 {
-    char *traverse;
+    char *track;
     unsigned int i;
     char *s;
     int count =0;
@@ -9,23 +9,23 @@ int _printf(const char* format,...)
     va_list arg;
     va_start(arg, format);
 
-    for(traverse = format; *traverse != '\0'; traverse++)
+    for(track = format; *track != '\0'; track++)
     {
 
-        while( *traverse != '%' )
+        while( *track != '%' )
         {
-            if(*traverse=='\0')
+            if(*track=='\0')
 	    {
 		    return;
 	    }
-            _putchar(*traverse);
+            _putchar(*track);
 	    count++;
-            traverse++;
+            track++;
         }
 
-        traverse++;
+        track++;
 
-        switch(*traverse)
+        switch(*track)
         {
             case 'c' : i = va_arg(arg,int);     //Fetch char argument
                         _putchar(i);
