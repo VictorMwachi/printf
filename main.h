@@ -7,6 +7,7 @@ int _putchar(char c);
 int _printf(const char *format, ...);
 int print_character(va_list valist);
 int print_string(va_list valist);
+int print_integer(va_list valist);
 
 /**
  * struct formatSpecifier - struct for format specifiers

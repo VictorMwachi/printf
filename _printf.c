@@ -16,6 +16,8 @@ int formatSpecifier(char next, va_list valist)
 	specifierStruct funcs[] = {
 	{"c", print_character},
 	{"s", print_string},
+	{"d", print_integer},
+	{"i", print_integer},
 	{NULL, NULL}
 	};
 
