@@ -2,7 +2,7 @@
 #define MAIN_H
 #include <stdarg.h>
 #include <stdlib.h>
-
+/*function protoypes*/
 int _putchar(char c);
 int _printf(const char *format, ...);
 int print_character(va_list valist);
