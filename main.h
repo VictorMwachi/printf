@@ -1,5 +1,6 @@
 #ifndef MAIN_H
 #define MAIN_H
+/*add standard libraries*/
 #include <stdarg.h>
 #include <stdlib.h>
 /*function protoypes*/
